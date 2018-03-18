@@ -1,7 +1,7 @@
 {
-  "name": "portfolio.client",
+  "name": "portfolio",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Personal side project",
   "author": "KarolisKaj <karolis.kajenas1@gmail.com>",
   "private": true,
   "scripts": {
