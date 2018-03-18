@@ -1,5 +1,7 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <div>
+    <v-btn dark='true' >btn</v-btn>
+  </div>
 </template>
 
 <script>
