@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn dark='true' >btn</v-btn>
+    <v-btn v-bind:dark=false >btn</v-btn>
   </div>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Oi'
+      msg: 'My home page'
     }
   }
 }

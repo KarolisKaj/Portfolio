@@ -1,22 +1,23 @@
 <template>
   <div id="app">
+      <PortfolioHeader></PortfolioHeader>
       <router-view/>
-      <v-footer height="1px" class="lime lighten-1 m-b-0" absolute='true'>
-          <v-flex xs12 py-3 text-xs-center black--text>
-            &copy;{{year}} — <strong>Karolis Kajėnas</strong>
-          </v-flex>
-      </v-footer>
+      <PortfolioFooter></PortfolioFooter>
   </div>
 </template>
 
 <script>
+import PortfolioFooter from './components/basic/PortfolioFooter'
+import PortfolioHeader from './components/basic/PortfolioHeader'
+
 export default {
   name: 'App',
   data () {
     return {
       year: (new Date()).getFullYear()
     }
-  }
+  },
+  components: { PortfolioFooter, PortfolioHeader }
 }
 </script>
 
@@ -25,7 +26,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 /* Will not show scrollbar */
-html { 
+html {
   overflow-y: auto
 }
 </style>
