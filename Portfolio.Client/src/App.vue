@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-      <PortfolioHeader></PortfolioHeader>
-      <router-view/>
-      <PortfolioFooter id="footer"></PortfolioFooter>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <PortfolioHeader></PortfolioHeader>
+    <router-view/>
+    <PortfolioFooter id="footer"></PortfolioFooter>
   </div>
 </template>
 
