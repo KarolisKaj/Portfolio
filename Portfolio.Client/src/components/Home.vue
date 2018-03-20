@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-btn v-bind:dark=false >btn</v-btn>
+    <v-btn >btn</v-btn>
   </div>
 </template>
 

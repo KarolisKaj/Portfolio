@@ -1,5 +1,5 @@
 <template>
-  <v-footer height="5px" class="lime lighten-1 m-b-0" absolute="true">
+  <v-footer>
       <v-flex xs12 py-3 text-xs-center blue accent-4--text>&copy;{{year}} — <strong>Karolis Kajėnas</strong>
       </v-flex>
   </v-footer>
@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'PortfolioFooter',
+  name: 'portfolioFooter',
   data () {
     return {
       year: (new Date()).getFullYear()

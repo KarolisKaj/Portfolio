@@ -2,7 +2,7 @@
   <div id="app">
       <PortfolioHeader></PortfolioHeader>
       <router-view/>
-      <PortfolioFooter></PortfolioFooter>
+      <PortfolioFooter id="footer"></PortfolioFooter>
   </div>
 </template>
 
@@ -24,9 +24,20 @@ export default {
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
 }
 /* Will not show scrollbar */
-html {
-  overflow-y: auto
+html, body {
+ overflow-y: auto;
+ height: 100%;
+ position: relative;
+}
+#footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 </style>
