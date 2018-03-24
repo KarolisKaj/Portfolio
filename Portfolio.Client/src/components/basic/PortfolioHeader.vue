@@ -1,9 +1,11 @@
 <template>
-    <v-toolbar >
+    <v-toolbar>
       <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title>Portfolio</v-toolbar-title>
       <v-spacer></v-spacer>
-
+      <v-btn v-for="metaLink in metaLinks" icon v-on:click="linkRedirect(metaLink.link)" v-bind:key="metaLink.link + metaLink.icon" >
+        <v-icon>{{metaLink.icon}}</v-icon>
+      </v-btn>
     </v-toolbar>
 </template>
 
@@ -11,7 +13,7 @@
 export default {
   name: 'PortfolioHeader',
   props: {
-    metalinks: {
+    metaLinks: {
       type: Array,
       required: true
     }
