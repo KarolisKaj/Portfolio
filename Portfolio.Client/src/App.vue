@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <PortfolioHeader v-bind:metaLinks="[{ link: 'https://stackoverflow.com/users/5505949', icon: 'fab fa-stack-overflow' },{ link: 'https://github.com/KarolisKaj', icon: 'fab fa-github-square' }]"></PortfolioHeader>
+    <PortfolioHeader v-bind:metaLinks="[{ link: 'https://www.linkedin.com/in/karolis-kaj%C4%97nas-b22146ab/', icon: 'fab fa-linkedin' },{ link: 'https://stackoverflow.com/users/5505949', icon: 'fab fa-stack-overflow' },{ link: 'https://github.com/KarolisKaj', icon: 'fab fa-github-square' }]"></PortfolioHeader>
     <router-view/>
     <PortfolioFooter id="footer"></PortfolioFooter>
   </div>
