@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <PortfolioHeader v-bind:metaLinks="metaLinks"></PortfolioHeader>
-    <router-view/>
-    <PortfolioFooter id="footer"></PortfolioFooter>
+    <PortfolioHeader app v-bind:metaLinks="metaLinks"></PortfolioHeader>
+    <v-content>
+      <router-view/>
+    </v-content>
+    <PortfolioFooter app></PortfolioFooter>
   </div>
 </template>
 
@@ -39,10 +41,5 @@ html, body {
  overflow-y: auto;
  height: 100%;
  position: relative;
-}
-#footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 </style>

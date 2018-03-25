@@ -1,5 +1,5 @@
 <template>
-    <v-toolbar>
+    <v-toolbar app>
       <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title>Portfolio</v-toolbar-title>
       <v-spacer></v-spacer>
