@@ -16,7 +16,7 @@ type ValuesController () =
 
     [<HttpGet("{id}")>]
     member this.Get(id:int) =
-        "value"
+        ()
 
     [<HttpPost>]
     member this.Post([<FromBody>]value:string) =
