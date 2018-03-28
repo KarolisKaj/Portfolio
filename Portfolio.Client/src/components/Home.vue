@@ -12,13 +12,13 @@
 
 <script>
 export default {
-  name: "Home",
-  data() {
+  name: 'Home',
+  data () {
     return {
-      msg: "My home page"
-    };
+      msg: 'My home page'
+    }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

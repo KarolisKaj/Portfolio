@@ -6,7 +6,7 @@ open System.Linq
 open System.Threading.Tasks
 open Microsoft.AspNetCore.Mvc
 
-[<Route("api/[controller]")>]
+[<Route("api/v1/[controller]")>]
 type ValuesController () =
     inherit Controller()
 
