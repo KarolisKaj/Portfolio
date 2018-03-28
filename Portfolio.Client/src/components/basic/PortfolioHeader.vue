@@ -22,10 +22,6 @@ export default {
     linkRedirect: function (link) {
       window.open(link)
     }
-  },
-  created: () => console.log(this),
-  mounted: () => console.log(this),
-  updated: () => console.log(this),
-  beforeUpdate: () => console.log(this)
+  }
 }
 </script>

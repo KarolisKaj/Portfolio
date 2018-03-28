@@ -1,5 +1,7 @@
 import Axios from 'axios'
 
-export default httpService = Axios.create({
-    url: 'http://localhost:50746/api'
+let httpService = Axios.create({
+  baseURL: 'http://localhost:50746/api/v1'
 })
+
+export default httpService
