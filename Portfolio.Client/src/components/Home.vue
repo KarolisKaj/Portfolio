@@ -22,8 +22,7 @@ export default {
   created: () => {
     console.log(this)
     httpService.get('http://localhost:50746/api/v1/values').then(value => {
-      Home.msg = value[0]
-      console.log(value[0])
+      console.log(value)
     }).catch(ex => {
       console.log(ex)
     })
@@ -31,7 +30,6 @@ export default {
   mounted: () => {
     console.log(this.msg)
     console.log(this)
-    Vue.set(this, 'msg', 'asdasdas')
   }
 }
 </script>
