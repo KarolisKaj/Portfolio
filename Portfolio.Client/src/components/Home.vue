@@ -3,7 +3,7 @@
     <v-layout row wrap>
       <v-flex xs12>
         <v-card >
-          <v-card-text class="px-0" > {{ msg }} </v-card-text>
+          <v-card-text class="px-0" v-text="msg">  </v-card-text>
         </v-card>
       </v-flex>
     </v-layout>
@@ -16,20 +16,16 @@ export default {
   name: 'home',
   data () {
     return {
-      msg: 'Initial Value'
+      msg: 'My'
     }
   },
-  created: () => {
-    console.log(this)
+  created () {
+    let self = this
     httpService.get('http://localhost:50746/api/v1/values').then(value => {
-      console.log(value)
+      self.msg = value.data[0]
     }).catch(ex => {
       console.log(ex)
     })
-  },
-  mounted: () => {
-    console.log(this.msg)
-    console.log(this)
   }
 }
 </script>

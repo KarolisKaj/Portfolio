@@ -31,15 +31,9 @@ export default {
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  min-height: 100vh; /* will cover the 100% of viewport */
-  overflow: hidden;
-  display: block;
-  position: relative;
 }
 /* Will not show scrollbar */
 html, body {
  overflow-y: auto;
- height: 100%;
- position: relative;
 }
 </style>
