@@ -21,7 +21,7 @@ export default {
   },
   created () {
     let self = this
-    httpService.get('http://localhost:50746/api/v1/values').then(value => {
+    httpService.get('http://localhost:50746/api/v1/values/id=4').then(value => {
       self.msg = value.data[0]
     }).catch(ex => {
       console.log(ex)

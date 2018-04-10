@@ -1,6 +1,7 @@
 ﻿namespace Portfolio.Controllers
 
 open Microsoft.AspNetCore.Mvc
+open Portfolio.DataStore.DataStore
 
 [<Route("api/v1/[controller]")>]
 type ValuesController () =
@@ -11,8 +12,9 @@ type ValuesController () =
         [|"value1"; "value2"|]
 
     [<HttpGet("{id}")>]
-    member this.Get(id:int) =
-        ()
+    member this.Get(id:string) =
+        OpenConnection |> ignore
+        "ha"
 
     [<HttpPost>]
     member this.Post([<FromBody>]value:string) =
