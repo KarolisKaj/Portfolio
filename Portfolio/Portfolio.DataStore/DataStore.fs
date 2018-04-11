@@ -1,13 +1,16 @@
 namespace Portfolio.DataStore
 
 open Raven.Client.Documents
+open Model
 
 module DataStore =
     
     let OpenConnection = 
-        let documentStore = new DocumentStore()
-        documentStore.Urls = [|"https://a.portfolio.ravendb.community";|]
-        documentStore.Initialize()
-        let session = documentStore.OpenSession("https://a.portfolio.ravendb.community")
-        let data = session.Query("danske-bank-research-website", "Articles")
-        documentStore
+        let store = new DocumentStore (Urls = [|"https://a.portfolio.ravendb.community:44300"|], Database = "Portfolio")
+        store.Initialize() |> ignore
+        let session = store.OpenSession()
+        let data = session.Query<Article>()
+        let a = data.ToList()
+        let me = a.Result
+        me
+        store
