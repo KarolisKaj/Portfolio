@@ -1,29 +1,22 @@
 <template>
-  <v-container grid-list-md text-xs-center>
-    <v-layout row wrap>
-      <v-flex xs12>
-        <v-card >
-          <v-card-text class="px-0" v-text="msg">  </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <ArticleGrid :articles='articles'></ArticleGrid>
 </template>
 
 <script>
 import httpService from '../service/httpService'
+import ArticleGrid from './usercontrols/ArticleGrid'
 export default {
   name: 'home',
+  components: { ArticleGrid },
   data () {
     return {
-      msg: 'My'
+      articles: []
     }
   },
   created () {
     let self = this
-    httpService.get('http://localhost:50746/api/v1/article/danske-bank-research-website').then(value => {
-      console.log(value)
-      self.msg = value.data[0]
+    httpService.get('/article').then(value => {
+      self.articles = value.data
     }).catch(ex => {
       console.log(ex)
     })
