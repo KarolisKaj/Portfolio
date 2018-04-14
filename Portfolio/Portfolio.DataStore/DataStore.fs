@@ -20,7 +20,7 @@ module DataStore =
         let store = getStore hosts dbName certificate
         getSession store
         
-    let ObtainArticle id = 
+    let GetArticle id = 
         let session = initConnection
         (query {
             for article in session.Query<Article>() do
@@ -28,7 +28,7 @@ module DataStore =
             select article
         } |> Seq.toArray)
 
-    let ObtainArticles = 
+    let GetArticles = 
         let session = initConnection
         (session.Query<Article>() |> Seq.toArray)
         

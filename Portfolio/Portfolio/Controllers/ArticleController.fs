@@ -9,11 +9,11 @@ type ArticleController () =
 
     [<HttpGet>]
     member this.Get() =
-        ObtainArticles
+        GetArticles
 
     [<HttpGet("{id}")>]
     member this.Get(id:string) =
-        ObtainArticle id 
+        GetArticle id 
 
     [<HttpPost>]
     member this.Post([<FromBody>]value:string) =
