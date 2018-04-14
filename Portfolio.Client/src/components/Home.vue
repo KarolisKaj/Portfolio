@@ -1,10 +1,10 @@
 <template>
   <v-container fluid >
     <v-layout wrap row>
-      <v-flex md4 lg3 xl2 >
+      <v-flex xs12 sm12 md4 lg3 xl2 >
         <Author :img=img></Author>
       </v-flex>
-      <v-flex xs12 sm12 md8 lg9 xl10>
+      <v-flex>
         <ArticleGrid :articles='articles'></ArticleGrid>
       </v-flex>
     </v-layout>
@@ -15,14 +15,14 @@
 import httpService from '../service/httpService'
 import ArticleGrid from './usercontrols/ArticleGrid'
 import Author from './usercontrols/Author'
-import image from '../assets/author_img.jpg'
+import Image from '../assets/author_img.jpg'
 export default {
   name: 'home',
   components: { ArticleGrid, Author },
   data () {
     return {
       articles: [],
-      img: image
+      img: Image
     }
   },
   created () {
