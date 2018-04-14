@@ -1,6 +1,6 @@
 <template>
-    <v-avatar size="256" >
-        <img :src=imgSrc alt="avatar">
+    <v-avatar size=256 >
+        <img :src=img>
     </v-avatar>
 </template>
 
@@ -8,8 +8,7 @@
 export default {
   name: 'Author',
   props: {
-    imgSrc: {
-      type: String,
+    img: {
       required: true
     }
   }

@@ -1,10 +1,10 @@
 <template>
-  <v-container fluid="true">
-    <v-layout row wrap>
-      <v-flex >
-        <Author imgSrc='https://pre00.deviantart.net/7bf3/th/pre/f/2008/021/a/8/hokusai_omage_by_zweezwyy.jpg'></Author>
+  <v-container fluid >
+    <v-layout wrap row>
+      <v-flex md4 lg3 xl2 >
+        <Author :img=img></Author>
       </v-flex>
-      <v-flex >
+      <v-flex xs12 sm12 md8 lg9 xl10>
         <ArticleGrid :articles='articles'></ArticleGrid>
       </v-flex>
     </v-layout>
@@ -15,12 +15,14 @@
 import httpService from '../service/httpService'
 import ArticleGrid from './usercontrols/ArticleGrid'
 import Author from './usercontrols/Author'
+import image from '../assets/author_img.jpg'
 export default {
   name: 'home',
   components: { ArticleGrid, Author },
   data () {
     return {
-      articles: []
+      articles: [],
+      img: image
     }
   },
   created () {
