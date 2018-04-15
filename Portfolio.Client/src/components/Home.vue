@@ -6,6 +6,7 @@
       </v-flex>
       <v-flex>
         <ArticleGrid :articles='articles'></ArticleGrid>
+        <v-progress-circular v-if="articles === undefined" indeterminate :size="70" ></v-progress-circular>
       </v-flex>
     </v-layout>
   </v-container>
@@ -21,7 +22,7 @@ export default {
   components: { ArticleGrid, Author },
   data () {
     return {
-      articles: [],
+      articles: undefined,
       img: Image
     }
   },

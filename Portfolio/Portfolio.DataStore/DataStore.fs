@@ -27,7 +27,7 @@ module DataStore =
         (getSession store, store)
         
     let GetArticle id = 
-        let session, store = initConnection
+        let session, _ = initConnection
         (query {
             for article in session.Query<Article>() do
             where (article.id = id)
@@ -37,12 +37,12 @@ module DataStore =
     let GetArticles = 
         let session, store = initConnection
         let articles = (session.Query<Article>() |> Seq.toArray)
-        //for article in articles do
-        //    let attachment = store.Operations.Send(new GetAttachmentOperation(article.id, article.images.[0], AttachmentType.Document, null))
-        //    let memStr = new MemoryStream()
-        //    attachment.Stream.CopyTo(memStr)
-        //    article.attachment <-  memStr.ToArray()
-        //    memStr.Dispose()
-        //    attachment.Dispose()
+        for article in articles do
+            let attachment = store.Operations.Send(new GetAttachmentOperation(article.id, article.images.[0], AttachmentType.Document, null))
+            let memStr = new MemoryStream()
+            attachment.Stream.CopyTo(memStr)
+            article.attachment <-  memStr.ToArray()
+            memStr.Dispose()
+            attachment.Dispose()
         articles
         
