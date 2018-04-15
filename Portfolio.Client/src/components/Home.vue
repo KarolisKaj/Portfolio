@@ -2,11 +2,11 @@
   <v-container fluid >
     <v-layout wrap row>
       <v-flex xs12 sm12 md4 lg3 xl2 >
-        <Author :img=img></Author>
+        <Author :img=img elevation-7></Author>
       </v-flex>
       <v-flex>
         <ArticleGrid :articles='articles'></ArticleGrid>
-        <v-progress-circular v-if="articles === undefined" indeterminate :size="70" ></v-progress-circular>
+        <v-progress-circular v-if="articles.length === 0" indeterminate :size="70" ></v-progress-circular>
       </v-flex>
     </v-layout>
   </v-container>
@@ -22,7 +22,7 @@ export default {
   components: { ArticleGrid, Author },
   data () {
     return {
-      articles: undefined,
+      articles: [],
       img: Image
     }
   },

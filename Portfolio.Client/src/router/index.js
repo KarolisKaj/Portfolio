@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Home from '@/components/Home'
 import About from '@/components/About'
+import ViewArticle from '@/components/ViewArticle'
 import NotFound from '@/components/NotFound'
 import VueRouter from 'vue-router'
 
@@ -20,6 +21,7 @@ export default new VueRouter({
       ]
     },
     { path: '/about', component: About },
+    { path: '/article/:id', component: ViewArticle },
     { path: '*', component: NotFound }
   ]
 })

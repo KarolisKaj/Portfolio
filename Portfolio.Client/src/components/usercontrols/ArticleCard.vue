@@ -1,7 +1,7 @@
 <template>
-    <v-flex xs12 mt-2>
+    <v-flex xs12 mt-3 >
       <v-card class="white--text" >
-        <v-container fluid grid-list-lg>
+        <v-container fluid grid-list-lg elevation-7>
           <v-layout row wrap>
             <v-flex>
               <div>
@@ -11,10 +11,15 @@
             </v-flex>
             <v-flex v-if="article" xs12 sm4 md4 lg3 xl3>
               <v-card-media
-                v-bind:src="fullImgSrc"
+                :src="fullImgSrc"
                 height="125px"
                 contain
               ></v-card-media>
+            </v-flex>
+            <v-flex xs12>
+              <v-btn :href="link">
+                read more
+              </v-btn>
             </v-flex>
           </v-layout>
         </v-container>
@@ -33,6 +38,9 @@ export default {
   computed: {
     fullImgSrc: function () {
       return 'data:image/png;base64,' + this.article.attachment
+    },
+    link: function () {
+      return '/article/' + this.article.articleBodyId
     }
   },
   data () {
