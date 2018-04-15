@@ -1,17 +1,17 @@
 <template>
-    <v-flex xs12>
-      <v-card color="cyan darken-2" class="white--text">
+    <v-flex xs12 mt-2>
+      <v-card color="cyan darken-2" class="white--text" >
         <v-container fluid grid-list-lg>
           <v-layout row>
             <v-flex xs7>
               <div>
-                <div class="headline">Supermodel</div>
-                <div>Foster the People</div>
+                <div class="headline">{{article.title}}</div>
+                <div>{{article.teaser}}</div>
               </div>
             </v-flex>
-            <v-flex xs5>
+            <v-flex v-if="article" xs5>
               <v-card-media
-                src="/static/doc-images/cards/foster.jpg"
+                v-bind:src="fullImgSrc"
                 height="125px"
                 contain
               ></v-card-media>
@@ -27,8 +27,12 @@ export default {
   name: 'ArticleCard',
   props: {
     article: {
-      type: Object,
       required: true
+    }
+  },
+  computed: {
+    fullImgSrc: function () {
+      return 'data:image/png;base64,' + this.article.attachment
     }
   },
   data () {

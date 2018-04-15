@@ -1,4 +1,7 @@
 ﻿module Model
+
+open System
+
     type Article = {
         id : string
         articleBodyId :string
@@ -7,4 +10,5 @@
         teaser : string 
         images : string array
         keywords : string array
+        mutable attachment : byte array
         }

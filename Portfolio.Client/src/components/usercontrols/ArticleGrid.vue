@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container wrap>
       <ArticleCard v-for="article in articles" :key=article.id :article=article></ArticleCard>
   </v-container>
 </template>
@@ -14,11 +14,6 @@ export default {
     articles: {
       type: Array,
       required: true
-    }
-  },
-  data () {
-    return {
-      msg: ''
     }
   }
 }
