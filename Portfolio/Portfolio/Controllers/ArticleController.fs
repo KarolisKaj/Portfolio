@@ -13,10 +13,10 @@ type ArticleController () =
 
     [<HttpGet("{id}")>]
     member this.Get(id:string) =
-        GetArticle id 
+        GetArticle id
 
-    [<HttpPost>]
-    member this.Post([<FromBody>]value:string) =
+    [<HttpGet("body/{id}")>]
+    member this.Post(id:string) =
         ()
 
     [<HttpPut("{id}")>]
