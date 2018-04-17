@@ -17,7 +17,7 @@
               ></v-card-media>
             </v-flex>
             <v-flex xs12>
-              <v-btn :href="link">
+              <v-btn :href=link>
                 read more
               </v-btn>
             </v-flex>

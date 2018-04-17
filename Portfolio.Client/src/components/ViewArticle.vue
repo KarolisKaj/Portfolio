@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+    <div>{{ articleBody }}</div>
 </template>
 
 <script>
@@ -14,8 +14,8 @@ export default {
   },
   created () {
     let self = this
-    httpService.get('/article').then(value => {
-      self.articles = value.data
+    httpService.get('/article/body/' + this.$route.params.id).then(value => {
+      self.articles = value.data.body
     }).catch(ex => {
       console.log(ex)
     })

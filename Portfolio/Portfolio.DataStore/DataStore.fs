@@ -45,4 +45,12 @@ module DataStore =
             memStr.Dispose()
             attachment.Dispose()
         articles
+
+    let GetArticleBody id = 
+        let session, _ = initConnection
+        (query {
+            for articleBody in session.Query<ArticlesBody>() do
+            where (articleBody.Id = id)
+            select articleBody
+        } |> Seq.take 1)
         

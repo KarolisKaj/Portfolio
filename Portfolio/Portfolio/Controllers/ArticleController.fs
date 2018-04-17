@@ -17,7 +17,7 @@ type ArticleController () =
 
     [<HttpGet("body/{id}")>]
     member this.Post(id:string) =
-        ()
+        GetArticleBody id
 
     [<HttpPut("{id}")>]
     member this.Put(id:int, [<FromBody>]value:string ) =

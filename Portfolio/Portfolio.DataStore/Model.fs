@@ -12,3 +12,10 @@ open System
         keywords : string array
         mutable attachment : byte array
         }
+    
+    type ArticlesBody = {
+        Id: string
+        articleId: string
+        title: string
+        body: string
+    }
