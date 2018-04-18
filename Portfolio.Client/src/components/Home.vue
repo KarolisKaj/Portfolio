@@ -6,7 +6,9 @@
       </v-flex>
       <v-flex>
         <ArticleGrid :articles='articles'></ArticleGrid>
-        <v-progress-circular v-if="articles.length === 0" indeterminate :size="70" ></v-progress-circular>
+        <v-flex class="text-xs-center">
+          <v-progress-circular  v-if="articles.length === 0" indeterminate :size="70" ></v-progress-circular>
+        </v-flex>
       </v-flex>
     </v-layout>
   </v-container>
