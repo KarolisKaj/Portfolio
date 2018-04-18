@@ -1,6 +1,6 @@
 <template>
     <v-flex xs12 mt-3 >
-      <v-card class="white--text" >
+      <v-card  >
         <v-container fluid grid-list-lg elevation-7>
           <v-layout row wrap>
             <v-flex>
