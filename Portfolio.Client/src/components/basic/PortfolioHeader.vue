@@ -1,6 +1,7 @@
 <template>
     <v-toolbar app>
       <v-btn flat large href="/">Portfolio</v-btn>
+      <v-btn flat large href="/about">About</v-btn>
       <v-spacer></v-spacer>
       <v-btn v-for="metaLink in metaLinks" icon v-on:click="linkRedirect(metaLink.link)" v-bind:key="metaLink.link + metaLink.icon" >
         <v-icon>{{metaLink.icon}}</v-icon>
