@@ -1,21 +1,21 @@
 <template>
-  <v-container flued>
-    <div id="clouds">
-        <div class="cloud x1"></div>
-        <div class="cloud x1_5"></div>
-        <div class="cloud x2"></div>
-        <div class="cloud x3"></div>
-        <div class="cloud x4"></div>
-        <div class="cloud x5"></div>
-    </div>
-    <div class='c'>
-        <div class='_404'>404</div>
-        <hr>
-        <div class='_1'>THE PAGE</div>
-        <div class='_2'>WAS NOT FOUND</div>
-        <a class='btn' href='#'>GET ME TO SAFETY!</a>
-    </div>
-  </v-container>
+<div>
+ <div id="clouds">
+            <div class="cloud x1"></div>
+            <div class="cloud x1_5"></div>
+            <div class="cloud x2"></div>
+            <div class="cloud x3"></div>
+            <div class="cloud x4"></div>
+            <div class="cloud x5"></div>
+        </div>
+        <div class='c'>
+            <div class='_404'>404</div>
+            <hr>
+            <div class='_1'>THE PAGE</div>
+            <div class='_2'>WAS NOT FOUND</div>
+            <a class='btn' href='#'>BACK TO MARS</a>
+        </div>
+</div>
 </template>
 
 <script>
@@ -27,8 +27,8 @@ export default {
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=opensans:500);
 body{
-    background: #33cc99;
-    color:#fff;
+    background: "#33cc99 !important";
+    color:"#fff !important";
     font-family: 'Open Sans', sans-serif;
     max-height:700px;
     overflow: hidden;
