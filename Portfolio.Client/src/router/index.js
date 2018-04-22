@@ -3,6 +3,7 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import ViewArticle from '@/components/ViewArticle'
 import NotFound from '@/components/NotFound'
+import Contact from '@/components/Contact'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
@@ -22,6 +23,7 @@ export default new VueRouter({
     },
     { path: '/about', component: About },
     { path: '/article/:id', component: ViewArticle },
+    { path: '/contact', component: Contact },
     { path: '*', component: NotFound }
   ]
 })

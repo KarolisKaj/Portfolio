@@ -6,7 +6,9 @@
       </v-flex>
     </v-layout>
     <v-layout>
-      asdasd
+      <v-flex class="text-xs-center">
+      Text
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
