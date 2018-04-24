@@ -1,14 +1,22 @@
 <template>
-    <v-container fluid >
-        <h1>404 Page not found</h1>
-        <section class="error-container">
-          <span>4</span>
+    <v-container >
+      <v-layout row wrap justify-center>
+        <v-flex xs8 class="text-xs-center">
+          <h1 class="text">The link you have clicked may be broken or the page may have been removed.</h1>
+        </v-flex>
+      </v-layout>
+      <v-layout row wrap justify-center >
+        <v-flex xs4 sm12 md12 lg12 xl12 class="error-container">
+          <span >4</span>
           <span><span class="screen-reader-text">0</span></span>
           <span>4</span>
-        </section>
-        <div class="link-container">
-          <a target="_blank" href="/" class="more-link">Get me back to safety!</a>
-        </div>
+        </v-flex>
+      </v-layout>
+      <v-layout row>
+        <v-flex class="text-xs-center">
+          <v-btn href="/">Let's go home</v-btn>
+        </v-flex>
+        </v-layout>
     </v-container>
 </template>
 
@@ -54,22 +62,22 @@ export default {
 }
 .error-container > span:nth-of-type(2):before,
 .error-container > span:nth-of-type(2):after {
-	border-radius: 0%;
-	content:"";
-	position: absolute;
-	top: 0; left: 0;
-	width: inherit; height: inherit;
+  border-radius: 0%;
+  content:"";
+  position: absolute;
+  top: 0; left: 0;
+  width: inherit; height: inherit;
   border-radius: 999px;
-	box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
-				inset 0 30px 0 rgba(239, 250, 180, 0.4),
-				inset -30px 0 0 rgba(255, 196, 140, 0.4),	
-				inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+  box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
+    inset 0 30px 0 rgba(239, 250, 180, 0.4),
+    inset -30px 0 0 rgba(255, 196, 140, 0.4),
+    inset 0 -30px 0 rgba(245, 105, 145, 0.4);
   animation: shadowsdancing 4s infinite;
 }
 .error-container > span:nth-of-type(2):before {
-	-webkit-transform: rotate(45deg);
-	   -moz-transform: rotate(45deg);
-			transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 .screen-reader-text {
@@ -80,33 +88,33 @@ export default {
 @keyframes shadowsdancing {
   0% {
     box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
-				inset 0 30px 0 rgba(239, 250, 180, 0.4),
-				inset -30px 0 0 rgba(255, 196, 140, 0.4),	
-				inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+      inset 0 30px 0 rgba(239, 250, 180, 0.4),
+      inset -30px 0 0 rgba(255, 196, 140, 0.4),
+      inset 0 -30px 0 rgba(245, 105, 145, 0.4);
   }
   25% {
     box-shadow: inset 30px 0 0 rgba(245, 105, 145, 0.4),
-				inset 0 30px 0 rgba(209, 242, 165, 0.4),
-				inset -30px 0 0 rgba(239, 250, 180, 0.4),	
-				inset 0 -30px 0 rgba(255, 196, 140, 0.4);
+      inset 0 30px 0 rgba(209, 242, 165, 0.4),
+      inset -30px 0 0 rgba(239, 250, 180, 0.4),
+      inset 0 -30px 0 rgba(255, 196, 140, 0.4);
   }
   50% {
-     box-shadow: inset 30px 0 0 rgba(255, 196, 140, 0.4),
-				inset 0 30px 0 rgba(245, 105, 145, 0.4),
-				inset -30px 0 0 rgba(209, 242, 165, 0.4),	
-				inset 0 -30px 0 rgba(239, 250, 180, 0.4);
+    box-shadow: inset 30px 0 0 rgba(255, 196, 140, 0.4),
+      inset 0 30px 0 rgba(245, 105, 145, 0.4),
+      inset -30px 0 0 rgba(209, 242, 165, 0.4),
+      inset 0 -30px 0 rgba(239, 250, 180, 0.4);
   }
   75% {
-   box-shadow: inset 30px 0 0 rgba(239, 250, 180, 0.4),
-				inset 0 30px 0 rgba(255, 196, 140, 0.4),
-				inset -30px 0 0 rgba(245, 105, 145, 0.4),	
-				inset 0 -30px 0 rgba(209, 242, 165, 0.4);
+    box-shadow: inset 30px 0 0 rgba(239, 250, 180, 0.4),
+      inset 0 30px 0 rgba(255, 196, 140, 0.4),
+      inset -30px 0 0 rgba(245, 105, 145, 0.4),
+      inset 0 -30px 0 rgba(209, 242, 165, 0.4);
   }
   100% {
     box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
-				inset 0 30px 0 rgba(239, 250, 180, 0.4),
-				inset -30px 0 0 rgba(255, 196, 140, 0.4),	
-				inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+        inset 0 30px 0 rgba(239, 250, 180, 0.4),
+        inset -30px 0 0 rgba(255, 196, 140, 0.4),
+        inset 0 -30px 0 rgba(245, 105, 145, 0.4);
   }
 }
 @keyframes colordancing {
@@ -152,7 +160,7 @@ body {
   background-color: #416475;
   margin-bottom: 50px;
 }
-html, button, input, select, textarea {
+.text {
     font-family: 'Montserrat', Helvetica, sans-serif;
     color: #92a4ad;
 }

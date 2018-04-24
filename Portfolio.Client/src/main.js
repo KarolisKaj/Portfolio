@@ -13,5 +13,5 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<v-app ><App/></v-app>'
+  template: '<v-app dark><App/></v-app>'
 })
