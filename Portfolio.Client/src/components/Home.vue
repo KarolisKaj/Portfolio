@@ -1,7 +1,7 @@
 <template>
   <v-container fluid >
     <v-layout wrap row>
-      <v-flex xs12 sm12 md4 lg3 xl2 >
+      <v-flex xs12 sm12 md4 lg3 xl2 class="text-xs-center">
         <Author :img=img elevation-7></Author>
       </v-flex>
       <v-flex>

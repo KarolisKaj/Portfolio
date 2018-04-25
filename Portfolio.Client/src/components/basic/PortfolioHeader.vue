@@ -7,13 +7,13 @@
         <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
         <v-list>
           <v-list-tile href="/">
-            <v-list-tile-title href="/">Portfolio</v-list-tile-title>
+            <v-list-tile-title>Portfolio</v-list-tile-title>
           </v-list-tile>
           <v-list-tile href="/about">
-            <v-list-tile-title href="/about">About</v-list-tile-title>
+            <v-list-tile-title>About</v-list-tile-title>
           </v-list-tile>
           <v-list-tile href="/contact">
-            <v-list-tile-title href="/contact">Contact Me</v-list-tile-title>
+            <v-list-tile-title>Contact Me</v-list-tile-title>
           </v-list-tile>
         </v-list>
       </v-menu>
