@@ -3,6 +3,7 @@
     <v-layout wrap row>
       <v-flex xs12 sm12 md4 lg3 xl2 class="text-xs-center">
         <Author :img=img elevation-7></Author>
+        <v-btn href="/about" flat>About me</v-btn>
       </v-flex>
       <v-flex>
         <ArticleGrid :articles='articles'></ArticleGrid>
