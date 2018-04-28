@@ -7,8 +7,7 @@
     </v-layout>
     <v-layout>
       <v-flex class="text-xs-center">
-        Tech stack -
-        <v-chip v-for="tech in techStack" :key=tech>{{ tech }}</v-chip>
+        <v-chip v-for="tech in techStack" :key=tech disabled>{{ tech }}</v-chip>
       </v-flex>
     </v-layout>
   </v-container>
@@ -25,7 +24,7 @@ export default {
     return {
       msg: 'About page',
       img: Image,
-      techStack: ['.net', 'c#', 'kafka', 'vue', 'react', 'wpf']
+      techStack: ['.net', 'c#', 'kafka', 'vue', 'react', 'wpf', 'webpages', 'desktop apps']
     }
   }
 }
