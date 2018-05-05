@@ -1,6 +1,6 @@
-﻿module Model
+﻿namespace Portfolio.DataStore
 
-open System
+module Model =
 
     type Article = {
         id : string
@@ -18,4 +18,10 @@ open System
         articleId: string
         title: string
         body: string
+    }
+
+    type ContactSubmission = {
+        name: string
+        email: string
+        message: string
     }

@@ -1,7 +1,7 @@
 namespace Portfolio.DataStore
 
 open Raven.Client.Documents
-open Model
+open Portfolio.DataStore.Model
 open System.Security.Cryptography.X509Certificates
 
 module DataStore =

@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Controllers\ContactController.fs" />
     <Compile Include="Controllers\ArticleController.fs" />
     <Compile Include="Startup.fs" />
     <Compile Include="Program.fs" />
