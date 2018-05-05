@@ -38,7 +38,6 @@ export default {
   methods: {
     sumbit: function () {
       this.$refs.form.reset()
-      console.log('alert')
     }
   }
 }
