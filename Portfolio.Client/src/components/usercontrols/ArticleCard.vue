@@ -42,11 +42,6 @@ export default {
     link: function () {
       return '/article/' + this.article.articleBodyId
     }
-  },
-  data () {
-    return {
-      msg: ''
-    }
   }
 }
 </script>
