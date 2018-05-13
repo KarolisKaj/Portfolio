@@ -8,5 +8,5 @@ type ContactController () =
     inherit Controller()
 
     [<HttpPost>]
-    member this.Put([<FromBody>]value:ContactSubmission) =
+    member this.PostEmail([<FromBody>]value:ContactSubmission) =
         "Hi"

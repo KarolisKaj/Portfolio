@@ -12,15 +12,9 @@
       </v-form>
     </v-flex>
     <v-layout>
-    <v-snackbar :value="isSuccess || isFailure" m-0 pa-0 timeout="99999999" style="{ padding: 0 !important; }">
-      <div pa-0>
-        <v-alert v-model="isSuccess" m-0 pa-0 type="success" dismissible transition="scale-transition">
-          Successfully sent message. Will get back to you soon.
-        </v-alert>
-      </div>
-      <v-alert v-model="isFailure" type="error" dismissible transition="scale-transition">
-        Failed to send message. Please try again later.
-      </v-alert>
+    <v-snackbar :value="isSuccess || isFailure" :timeout='7000' :color=computeColor()>
+        <div v-if="isSuccess">Thanks for reaching out! Will get back to you soon.</div>
+        <div v-if="isFailure">Failed to send message. Please try again later.</div>
     </v-snackbar>
     </v-layout>
   </v-container>
@@ -48,7 +42,7 @@ export default {
         v => (v && v.length > 10) || 'Message must be longer than 10 characters'
       ],
       loading: false,
-      isSuccess: true,
+      isSuccess: false,
       isFailure: false
     }
   },
@@ -56,6 +50,7 @@ export default {
     sumbit: function () {
       let self = this
       self.loading = true
+      self.isSuccess = self.isFailure = false
       httpService.post('/contact', {
         name: self.name,
         email: self.email,
@@ -63,18 +58,15 @@ export default {
       }).then(value => {
         self.loading = false
         self.isSuccess = true
+        self.$refs.form.reset()
       }).catch(ex => {
         self.loading = false
         self.isFailure = true
       })
-      this.$refs.form.reset()
+    },
+    computeColor: function () {
+      return this.isSuccess ? 'success' : 'error'
     }
   }
 }
 </script>
-
-<style scoped>
-.snack__content {
-  padding: "0px 0px 0px 0px !important";
-}
-</style>
