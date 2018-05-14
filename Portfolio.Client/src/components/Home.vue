@@ -6,7 +6,7 @@
         <v-btn href="/about" flat>About me</v-btn>
       </v-flex>
       <v-flex class="text-xs-center" title v-if="isError" mt-5>
-          <div>Unable to load articles. <a href="/contact">Contact me...</a></div>
+        <div>Unable to load articles. <a href="/contact">Contact me...</a></div>
       </v-flex>
       <v-flex v-if="!isError">
         <ArticleGrid :articles='articles'></ArticleGrid>
