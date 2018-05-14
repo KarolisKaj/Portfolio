@@ -13,7 +13,6 @@
         <v-flex class="text-xs-center">
           <v-progress-circular  v-if="articles.length === 0 && !isError" indeterminate :size="70" ></v-progress-circular>
         </v-flex>
-
       </v-flex>
     </v-layout>
   </v-container>
@@ -36,11 +35,11 @@ export default {
   },
   created () {
     let self = this
-    self.isError = false;
+    self.isError = false
     httpService.get('/article').then(value => {
       self.articles = value.data
     }).catch(ex => {
-      self.isError = true;
+      self.isError = true
     })
   }
 }
