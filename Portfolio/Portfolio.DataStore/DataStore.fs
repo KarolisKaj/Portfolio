@@ -23,34 +23,41 @@ module DataStore =
 
     let initConnection =
         let store = getStore hosts dbName certificate
-        
         (getSession store, store)
         
     let GetArticle id = 
         let session, _ = initConnection
-        (query {
-            for article in session.Query<Article>() do
-            where (article.id = id)
-            select article
-        } |> Seq.toArray)
+        try
+            (query {
+                for article in session.Query<Article>() do
+                where (article.id = id)
+                select article
+            } |> Seq.toArray)
+        finally 
+            session.Dispose() |> ignore
 
     let GetArticles = 
         let session, store = initConnection
-        let articles = (session.Query<Article>() |> Seq.toArray)
-        for article in articles do
-            let attachment = store.Operations.Send(new GetAttachmentOperation(article.id, article.images.[0], AttachmentType.Document, null))
-            let memStr = new MemoryStream()
-            attachment.Stream.CopyTo(memStr)
-            article.attachment <-  memStr.ToArray()
-            memStr.Dispose()
-            attachment.Dispose()
-        articles
+        try
+            let articles = (session.Query<Article>() |> Seq.toArray)
+            for article in articles do
+                use attachment = store.Operations.Send(new GetAttachmentOperation(article.id, article.images.[0], AttachmentType.Document, null))
+                use memStr = new MemoryStream()
+                attachment.Stream.CopyTo(memStr)
+                article.attachment <-  memStr.ToArray()
+            articles
+        finally 
+            session.Dispose() |> ignore
+            store.Dispose() |> ignore
 
     let GetArticleBody id = 
         let session, _ = initConnection
-        (query {
-            for articleBody in session.Query<ArticlesBody>() do
-            where (articleBody.Id = id)
-            select articleBody
-        } |> Seq.take 1)
-        
+        try
+            (query {
+                for articleBody in session.Query<ArticlesBody>() do
+                where (articleBody.Id = id)
+                select articleBody
+            } |> Seq.take 1)
+        finally 
+            session.Dispose() |> ignore
+
