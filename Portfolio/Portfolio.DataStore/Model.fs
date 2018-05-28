@@ -20,7 +20,7 @@ module Model =
         body: string
     }
 
-    type ContactSubmission = {
+    type Message = {
         name: string
         email: string
         message: string

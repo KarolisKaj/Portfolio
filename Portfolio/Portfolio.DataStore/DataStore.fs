@@ -36,16 +36,20 @@ module DataStore =
         finally 
             session.Dispose() |> ignore
 
-    let GetArticles = 
+    let GetArticles () = 
         let session, store = initConnection
         try
-            let articles = (session.Query<Article>() |> Seq.toArray)
-            for article in articles do
-                use attachment = store.Operations.Send(new GetAttachmentOperation(article.id, article.images.[0], AttachmentType.Document, null))
-                use memStr = new MemoryStream()
-                attachment.Stream.CopyTo(memStr)
-                article.attachment <-  memStr.ToArray()
-            articles
+            try
+                let articles = (session.Query<Article>() |> Seq.toArray)
+                for article in articles do
+                    use attachment = store.Operations.Send(new GetAttachmentOperation(article.id, article.images.[0], AttachmentType.Document, null))
+                    use memStr = new MemoryStream()
+                    attachment.Stream.CopyTo(memStr)
+                    article.attachment <-  memStr.ToArray()
+                articles
+            with
+                ex -> 
+                reraise()
         finally 
             session.Dispose() |> ignore
             store.Dispose() |> ignore
@@ -53,11 +57,26 @@ module DataStore =
     let GetArticleBody id = 
         let session, _ = initConnection
         try
-            (query {
+            try
+                (query {
                 for articleBody in session.Query<ArticlesBody>() do
                 where (articleBody.Id = id)
                 select articleBody
-            } |> Seq.take 1)
+                } |> Seq.take 1)
+            with
+                ex -> 
+                reraise()
         finally 
             session.Dispose() |> ignore
 
+    let StoreMessage message =
+        let session, _ = initConnection
+        try
+            try
+                session.Store({ name = message.name; email= message.email; message = message.message }, null)
+                session.SaveChanges()
+            with
+                ex -> 
+                reraise()
+        finally 
+            session.Dispose() |> ignore

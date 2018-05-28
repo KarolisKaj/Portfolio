@@ -9,7 +9,7 @@ type ArticleController () =
 
     [<HttpGet>]
     member this.Get() =
-        GetArticles
+        GetArticle ""
 
     [<HttpGet("{id}")>]
     member this.Get(id:string) =
