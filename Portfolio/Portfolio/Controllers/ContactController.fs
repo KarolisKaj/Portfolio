@@ -11,4 +11,3 @@ type ContactController () =
     [<HttpPost>]
     member this.PostEmail([<FromBody>]value:Message) =
         StoreMessage value
-        StatusCodeResult(200)
