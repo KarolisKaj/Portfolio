@@ -1,14 +1,13 @@
 namespace Portfolio.DataStore
 
-open Raven.Client.Documents
-open Portfolio.DataStore.Model
-open System.Security.Cryptography.X509Certificates
-
 module DataStore =
     open Raven.Client.Documents.Operations.Attachments
     open Raven.Client.Documents.Attachments
     open System.IO
     open System
+    open Raven.Client.Documents
+    open Portfolio.DataStore.Model
+    open System.Security.Cryptography.X509Certificates
 
     let certificate = new X509Certificate2("C:\\RavenDB\\Clusters\\Portfolio\\A\\cluster.server.certificate.portfolio.pfx")
     let hosts = [|"https://a.portfolio.ravendb.community:44300"|]
@@ -18,16 +17,20 @@ module DataStore =
         let store = new DocumentStore (Urls = urls, Database = db, Certificate = cert)
         store.Initialize()
 
-    let getSession (store : IDocumentStore) =
+    let createSession (store : IDocumentStore) =
         store.OpenSession()
 
     let initConnection () =
         let store = getStore hosts dbName certificate
-        (getSession store, store)
-        
+        (createSession store, store)
+
+    let getSession () =
+        let session, toDispose = initConnection()
+        toDispose.Dispose |> ignore 
+        session
+
     let GetArticle id = 
-        let s, _ = initConnection()
-        use session = s
+        use session = getSession()
         (query {
             for article in session.Query<Article>() do
             where (article.id = id)
@@ -47,8 +50,7 @@ module DataStore =
         articles
 
     let GetArticleBody id = 
-        let s, _ = initConnection()
-        use session = s
+        use session = getSession()
         (query {
         for articleBody in session.Query<ArticlesBody>() do
         where (articleBody.Id = id)
@@ -56,7 +58,6 @@ module DataStore =
         } |> Seq.take 1)
 
     let StoreMessage message =
-        let s, _ = initConnection()
-        use session = s
+        use session = getSession()
         session.Store({ name = message.name; email= message.email; message = message.message }, null)
         session.SaveChanges()
