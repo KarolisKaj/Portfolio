@@ -17,7 +17,6 @@ export default {
     httpService.get('/article/body/' + this.$route.params.id).then(value => {
       self.articles = value.data.body
     }).catch(ex => {
-      console.log(ex)
     })
   }
 }
