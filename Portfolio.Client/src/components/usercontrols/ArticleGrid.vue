@@ -12,7 +12,6 @@ export default {
   components: { ArticleCard },
   props: {
     articles: {
-      type: Array,
       required: true
     }
   }

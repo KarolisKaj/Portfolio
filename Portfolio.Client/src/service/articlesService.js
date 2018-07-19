@@ -1,6 +1,6 @@
-import articles from '../static/articles/articles'
+import articles from './articles/articles'
 
-let articleService = {
+let articlesService = {
   getArticles: function () {
     return articles
   },
@@ -12,4 +12,4 @@ let articleService = {
   }
 }
 
-export default articleService
+export default articlesService

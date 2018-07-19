@@ -2,16 +2,16 @@
     <v-flex xs12 mt-3 >
       <v-card  >
         <v-container fluid grid-list-lg elevation-7>
-          <v-layout row wrap>
+          <v-layout row wrap >
             <v-flex>
               <div>
                 <div class="headline">{{article.title}}</div>
-                <div>{{article.teaser}}</div>
+                <div>{{article.description}}</div>
               </div>
             </v-flex>
             <v-flex v-if="article" xs12 sm4 md4 lg3 xl3>
               <v-card-media
-                :src="fullImgSrc"
+                :src= "require('../../service/articles/researchwebsite.png')"
                 height="125px"
                 contain
               ></v-card-media>
@@ -36,11 +36,8 @@ export default {
     }
   },
   computed: {
-    fullImgSrc: function () {
-      return 'data:image/png;base64,' + this.article.attachment
-    },
     link: function () {
-      return '/article/' + this.article.articleBodyId
+      return '/article/' + this.article.id
     }
   }
 }

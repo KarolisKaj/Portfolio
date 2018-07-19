@@ -10,16 +10,13 @@
       </v-flex>
       <v-flex v-if="!isError">
         <ArticleGrid :articles='articles'></ArticleGrid>
-        <v-flex class="text-xs-center">
-          <v-progress-circular  v-if="articles.length === 0 && !isError" indeterminate :size="70" ></v-progress-circular>
-        </v-flex>
       </v-flex>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import httpService from '../service/httpService'
+import articlesService from '../service/articlesService'
 import ArticleGrid from './usercontrols/ArticleGrid'
 import Author from './usercontrols/Author'
 import Image from '../assets/author_img.jpg'
@@ -34,13 +31,7 @@ export default {
     }
   },
   created () {
-    let self = this
-    self.isError = false
-    httpService.get('/article').then(value => {
-      self.articles = value.data
-    }).catch(ex => {
-      self.isError = true
-    })
+    this.articles = articlesService.getArticles()
   }
 }
 </script>

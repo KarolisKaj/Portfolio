@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import httpService from '../service/httpService'
+import articleService from '../service/articlesService'
 
 export default {
   name: 'ViewArticle',
@@ -13,11 +13,7 @@ export default {
     }
   },
   created () {
-    let self = this
-    httpService.get('/article/body/' + this.$route.params.id).then(value => {
-      self.articles = value.data.body
-    }).catch(ex => {
-    })
+    this.articles = articleService.getArticle(this.$route.params.id)
   }
 }
 </script>
