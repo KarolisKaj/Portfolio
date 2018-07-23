@@ -11,7 +11,7 @@
             </v-flex>
             <v-flex v-if="article" xs12 sm4 md4 lg3 xl3>
               <v-card-media
-                :src= "require('../../service/articles/researchwebsite.png')"
+                :src= imageSrc
                 height="125px"
                 contain
               ></v-card-media>
@@ -36,6 +36,9 @@ export default {
     }
   },
   computed: {
+    imageSrc: function () {
+      return require(this.article.imageSrc)
+    },
     link: function () {
       return '/article/' + this.article.id
     }
