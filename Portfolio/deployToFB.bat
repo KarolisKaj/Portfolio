@@ -1,9 +1,9 @@
 REM SendGrid key is already added to the config of firebase.
-call npm run build
-mkdir c:\tempDeploy\public
-xcopy /s .\dist c:\tempDeploy\public\ /Y
-rmdir /s /q .\dist
-cd c:\tempDeploy 
+mkdir c:\tempDeployFunctions\functions
+xcopy /s .\src c:\tempDeployFunctions\functions\ /Y
+copy .\package.json c:\tempDeployFunctions\functions\ /Y
+cd c:\tempDeployFunctions 
 call firebase login
-call firebase -P portfolio-66a1b init hosting
-call firebase -P portfolio-66a1b deploy
+call firebase -P portfolio-66a1b init functions
+call firebase -P portfolio-66a1b deploy --only functions
+
