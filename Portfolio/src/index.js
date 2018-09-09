@@ -30,7 +30,7 @@ exports.sendMail = functions.https.onRequest((request, response) => {
                 response.status(resp.statusCode).send("Email was not sent due to erroneous status code from SendGrid.");
             }
         }).catch(error => {
-            response.status(400).send("Email was not sent due to error from SendGrid." + error);
+            response.status(400).send("Email was not sent due to error in 3rd party email service." + error);
         });
     }
     else {
