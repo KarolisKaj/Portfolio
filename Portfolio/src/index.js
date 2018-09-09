@@ -9,19 +9,17 @@ const MY_INBOX = functions.config().mails.myinbox;
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(SENDGRID_API_KEY);
 
-// Create and Deploy Your First Cloud Functions
-// https://firebase.google.com/docs/functions/write-firebase-functions
-
 exports.sendMail = functions.https.onRequest((request, response) => {
     if (request.body) {
         const reqBody = request.body;
-        console.log(request);
+
         const msg = {
             to: MY_INBOX,
             from: reqBody.email,
             subject: 'Enquiry via website from ' + reqBody.name,
             text: reqBody.message,
         };
+
         sgMail.send(msg).then(resp => {
             if (resp.statusCode === 200 || resp.statusCode === 201) {
                 response.status(200).send("Successfully sent mail.");
