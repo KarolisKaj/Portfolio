@@ -7,9 +7,6 @@ let articlesService = {
   getArticle: function (id) {
     return articles[id]
   },
-  getArticleBody: function (id) {
-    return articles[id].body
-  }
 }
 
 export default articlesService
