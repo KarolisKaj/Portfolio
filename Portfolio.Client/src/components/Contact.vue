@@ -55,11 +55,11 @@ export default {
         name: self.name,
         email: self.email,
         message: self.message
-      }).then(value => {
+      }).then(() => {
         self.loading = false
         self.isSuccess = true
         self.$refs.form.reset()
-      }).catch(ex => {
+      }).catch(() => {
         self.loading = false
         self.isFailure = true
       })
